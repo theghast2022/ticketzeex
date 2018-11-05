@@ -5,13 +5,18 @@ client.on('ready', () => {
  console.log("Bot Online"); 
 console.log("log");
 });
-var prefix = "$";
+var prefix = "-";
 
 client.on('ready', () => {
-    client.user.setActivity(".new||.close ",{type: 'WATCHING'})
-
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(``,"http://twitch.tv/idk")
+client.user.setStatus("dnd")
 });
-
 
 
 
@@ -20,7 +25,7 @@ client.on('ready', () => {
 
 client.on("message", (message) => {
     /// ALPHA CODES
-   if (message.content.startsWith(".ticket")) {     /// ALPHA CODES
+   if (message.content.startsWith("-new")) {     /// ALPHA CODES
         const reason = message.content.split(" ").slice(1).join(" ");     /// ALPHA CODES
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
@@ -51,12 +56,12 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith(".close")) {
+  if (message.content.startsWith("-close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`$confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
+        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`-confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
             .then((m) => {
-                message.channel.awaitMessages(response => response.content === '$confirm', {
+                message.channel.awaitMessages(response => response.content === '-confirm', {
                         max: 1,
                         time: 10000,
                         errors: ['time'],
@@ -73,11 +78,6 @@ client.on("message", (message) => {
     }
  
 });
- 
- 
- 
- 
-client.login(process.env.BOT_TOKEN);
  
  
  
